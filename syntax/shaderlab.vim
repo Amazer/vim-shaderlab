@@ -86,6 +86,21 @@ syntax keyword shaderlabFunction SetTexture
 syntax keyword shaderlabFunction combine
 syntax keyword shaderlabFunction UnityPixelSnap
 
+syntax keyword shaderlabFunction Combine
+syntax keyword shaderlabFunction lerp
+
+syntax keyword shaderlabOptional previous
+syntax keyword shaderlabOptional Primary
+syntax keyword shaderlabOptional Back Front Off
+syntax keyword shaderlabOptional On
+syntax keyword shaderlabOptional Less Greater LEqual GEqual NotEqual Always
+syntax keyword shaderlabOptional Factor Units
+syntax keyword shaderlabOptional Diffuse Ambient Shininess Specular Emission
+syntax keyword shaderlabOptional Queue IgnoreProjector RenderType
+syntax keyword shaderlabOptional Transparent
+"Blend factors
+syntax keyword shaderlabOptional One Zero SrcColor SrcAlpha DstColor DstAlpha OneMinusSrcColor OneMinusSrcAlpha OneMinusDstColor OneMinusDstAlpha
+
 syntax keyword shaderlabStatement return
 
 syntax keyword shaderlabCGProgram CGPROGRAM
@@ -126,6 +141,7 @@ highlight link shaderlabStatement  Statement
 highlight link shaderlabCGProgram  PreCondit
 highlight link shaderlabComment    Comment
 highlight link shaderlabPreProc    PreCondit
+highlight link shaderlabOptional   PreCondit
 
 
 let b:current_syntax = "shaderlab"
