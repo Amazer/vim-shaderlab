@@ -25,7 +25,7 @@ function! s:getFiletypeKey()
 endfunction
 
 function! shaderlabcomplete#Complete(findstart, base)
-    echom 'cyc complete invocated'.a:findstart.','.a:base
+    echom 'cyc complete invocated,findstart:'.a:findstart.',base:'.a:base
     if a:findstart
         " Locate the start of the item 
         let line = getline('.')
@@ -51,6 +51,22 @@ function! shaderlabcomplete#Complete(findstart, base)
         let s:prepended=strpart(line,start,(col('.')-1)-start)
         echom 'lastword=='.lastword.', prepended='.s:prepended
         return start
+    endif
+
+    if a:findstart ==0
+        echom "findstart==0, check is ."
+        let line = getline('.')
+        let start = col('.') - 1
+        while start>0
+        let curChar=strpart(line,start,(col('.')-1)-start)
+            echom "start:".start.",char:".curChar
+            let res=matchlist(curChar,'\v\s+([_a-zA-Z]+[_a-zA-Z0-9]*)\s*\.')
+            if len(res)>0
+                echom 'find var:'.res[1]
+                break
+            endif
+            let start -=1
+        endwhile
     endif
 
     
